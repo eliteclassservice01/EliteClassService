@@ -247,16 +247,16 @@ margin:auto;
 <div class="title">রেজিস্টার ফর্ম</div>
 
 <label>আপনার নাম</label>
-<input type="text">
+<input type="text" id="name">
 
 <label>আপনার ফোন নম্বর</label>
-<input type="text">
+<input type="text" id="phone">
 
 <label>কোন জেলায় কাজ করবেন?</label>
-<input type="text">
+<input type="text" id="district">
 
 <label>রাতে কাজ করবেন?</label>
-<select>
+<select id="nightWork">
 <option>হ্যাঁ</option>
 <option>না</option>
 </select>
@@ -314,10 +314,10 @@ margin:auto;
 <div class="number" id="payNumber"></div>
 
 <label>TRX ID</label>
-<input type="text" placeholder="TRX ID লিখুন">
+<input type="text" id="trxId" placeholder="TRX ID লিখুন">
 
 <div class="center">
-<button class="btn" onclick="showPage('success')">
+<button class="btn" onclick="submitForm()">
 TRX ID জমা দিন
 </button>
 </div>
@@ -400,7 +400,43 @@ number='01631348072';
 document.getElementById('payNumber').innerHTML=number;
 
 }
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxq4NupEWAWAAMJmXEJKLq16FOhQVIlZI1LC0KeaC-GAwAi-bhqOtv00b6fTEFHq9kk3w/exec";
 
+async function submitForm(){
+
+  const data = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    district: document.getElementById("district").value,
+    nightWork: document.getElementById("nightWork").value,
+    paymentMethod: document.getElementById("method").value,
+    trxId: document.getElementById("trxId").value
+  };
+
+  try{
+
+    const response = await fetch(SCRIPT_URL,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    if(result.success){
+      showPage("success");
+    }else{
+      alert("ডাটা সেভ হয়নি");
+    }
+
+  }catch(error){
+    console.log(error);
+    alert("Server Error");
+  }
+
+}
 </script>
 
 </body>
