@@ -1,13 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="bn">
 <head>
-    <title>Elite Class Service</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Elite Class Service</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.box{
+    margin-bottom:20px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.btn{
+    background:#1877f2;
+    color:white;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+
+.hidden{
+    display:none;
+}
+
+</style>
 </head>
 <body>
 
-    <h1>Website Working</h1>
+<div class="container">
 
-    <p>GitHub Pages Test Successful</p>
+    <!-- MESSAGE 1 -->
+
+    <div id="step1" class="box">
+
+        <h3>[MESSAGE_1]</h3>
+
+        <button class="btn" onclick="showStep2()">হ্যাঁ</button>
+
+        <button onclick="showStep2()">না</button>
+
+    </div>
+
+    <!-- MESSAGE 2 -->
+
+    <div id="step2" class="box hidden">
+
+        <h3>[MESSAGE_2]</h3>
+
+        <button class="btn" onclick="showStep3()">করতে চাই</button>
+
+    </div>
+
+    <!-- FORM -->
+
+    <div id="step3" class="box hidden">
+
+        <h3>[MESSAGE_3_TITLE]</h3>
+
+        <input type="text" id="name" placeholder="নাম">
+
+        <input type="text" id="phone" placeholder="ফোন">
+
+        <input type="text" id="district" placeholder="জেলা">
+
+        <select id="nightWork">
+            <option value="">রাতে কাজ করতে পারবেন?</option>
+            <option>হ্যাঁ</option>
+            <option>না</option>
+        </select>
+
+        <button class="btn" onclick="submitForm()">জমা দিন</button>
+
+    </div>
+
+</div>
+
+<script>
+
+function showStep2(){
+    document.getElementById('step1').classList.add('hidden');
+    document.getElementById('step2').classList.remove('hidden');
+}
+
+function showStep3(){
+    document.getElementById('step2').classList.add('hidden');
+    document.getElementById('step3').classList.remove('hidden');
+}
+
+function submitForm(){
+
+    let name=document.getElementById('name').value;
+    let phone=document.getElementById('phone').value;
+    let district=document.getElementById('district').value;
+    let night=document.getElementById('nightWork').value;
+
+    if(!name || !phone || !district || !night){
+        alert('সব তথ্য পূরণ করুন');
+        return;
+    }
+
+    alert('Form Completed');
+}
+
+</script>
 
 </body>
 </html>
