@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Elite Class Service</title>
 
 <style>
-
 body{
     font-family: Arial, sans-serif;
     background:#f2f2f2;
@@ -18,14 +16,18 @@ body{
 .container{
     max-width:500px;
     margin:auto;
-    background:white;
+    background:#fff;
     padding:20px;
     border-radius:12px;
     box-shadow:0 0 10px rgba(0,0,0,.1);
 }
 
-.box{
-    margin-bottom:20px;
+.hidden{
+    display:none;
+}
+
+h3{
+    margin-top:0;
 }
 
 button{
@@ -52,19 +54,22 @@ input,select{
     box-sizing:border-box;
 }
 
-.hidden{
-    display:none;
+.info{
+    background:#f8f8f8;
+    padding:12px;
+    border-radius:8px;
+    margin-top:10px;
 }
-
 </style>
+
 </head>
 <body>
 
 <div class="container">
 
-    <!-- MESSAGE 1 -->
+    <!-- STEP 1 -->
 
-    <div id="step1" class="box">
+    <div id="step1">
 
         <h3>[MESSAGE_1]</h3>
 
@@ -74,9 +79,9 @@ input,select{
 
     </div>
 
-    <!-- MESSAGE 2 -->
+    <!-- STEP 2 -->
 
-    <div id="step2" class="box hidden">
+    <div id="step2" class="hidden">
 
         <h3>[MESSAGE_2]</h3>
 
@@ -84,9 +89,9 @@ input,select{
 
     </div>
 
-    <!-- FORM -->
+    <!-- STEP 3 -->
 
-    <div id="step3" class="box hidden">
+    <div id="step3" class="hidden">
 
         <h3>[MESSAGE_3_TITLE]</h3>
 
@@ -106,18 +111,72 @@ input,select{
 
     </div>
 
+    <!-- STEP 4 -->
+
+    <div id="step4" class="hidden">
+
+        <h3>[MESSAGE_4_PAYMENT_TEXT]</h3>
+
+        <button onclick="selectPayment('Bkash')">🟢 বিকাশ</button>
+
+        <button onclick="selectPayment('Nagad')">🟠 নগদ</button>
+
+        <button onclick="selectPayment('Rocket')">🔵 রকেট</button>
+
+        <div id="paymentBox"></div>
+
+    </div>
+
+    <!-- STEP 5 -->
+
+    <div id="step5" class="hidden">
+
+        <h3>[MESSAGE_5_TRX_TEXT]</h3>
+
+        <input type="text" id="trxId" placeholder="TRX ID">
+
+        <button class="btn" onclick="goSuccess()">পরবর্তী</button>
+
+    </div>
+
+    <!-- SUCCESS -->
+
+    <div id="success" class="hidden">
+
+        <h2>সফলভাবে সম্পন্ন হয়েছে</h2>
+
+        <p>
+            Telegram Group:
+            <br>
+            [GROUP_LINK]
+        </p>
+
+        <p>
+            Contact:
+            <br>
+            [CONTACT_USERNAME]
+        </p>
+
+    </div>
+
 </div>
 
 <script>
 
+let selectedPayment='';
+
 function showStep2(){
+
     document.getElementById('step1').classList.add('hidden');
     document.getElementById('step2').classList.remove('hidden');
+
 }
 
 function showStep3(){
+
     document.getElementById('step2').classList.add('hidden');
     document.getElementById('step3').classList.remove('hidden');
+
 }
 
 function submitForm(){
@@ -128,11 +187,76 @@ function submitForm(){
     let night=document.getElementById('nightWork').value;
 
     if(!name || !phone || !district || !night){
+
         alert('সব তথ্য পূরণ করুন');
         return;
+
     }
 
-    alert('Form Completed');
+    document.getElementById('step3').classList.add('hidden');
+    document.getElementById('step4').classList.remove('hidden');
+
+}
+
+function selectPayment(method){
+
+    selectedPayment=method;
+
+    let number='';
+
+    if(method==='Bkash'){
+        number='[BKASH_NUMBER]';
+    }
+
+    if(method==='Nagad'){
+        number='[NAGAD_NUMBER]';
+    }
+
+    if(method==='Rocket'){
+        number='[ROCKET_NUMBER]';
+    }
+
+    document.getElementById('paymentBox').innerHTML=`
+
+        <div class="info">
+
+            <p><b>Method:</b> ${method}</p>
+
+            <p><b>Number:</b> ${number}</p>
+
+            <p><b>Amount:</b> [PRICE]</p>
+
+            <button class="btn" onclick="showTrxStep()">
+                পে করবো
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+function showTrxStep(){
+
+    document.getElementById('step4').classList.add('hidden');
+    document.getElementById('step5').classList.remove('hidden');
+
+}
+
+function goSuccess(){
+
+    let trx=document.getElementById('trxId').value;
+
+    if(!trx){
+
+        alert('TRX ID দিন');
+        return;
+
+    }
+
+    document.getElementById('step5').classList.add('hidden');
+    document.getElementById('success').classList.remove('hidden');
+
 }
 
 </script>
