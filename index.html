@@ -3,23 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Class Services</title>
+<title>Chat Bot Funnel</title>
 
 <style>
 body{
-    font-family: Arial;
-    background:#f2f2f2;
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
     margin:0;
 }
 
-.page{
-    display:none;
+.chat{
     max-width:500px;
     margin:auto;
     padding:20px;
 }
 
-.active{
+.page{
+    display:none;
+}
+
+.page.active{
     display:block;
 }
 
@@ -28,22 +31,24 @@ body{
     padding:20px;
     border-radius:15px;
     margin-top:20px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    box-shadow:0 0 10px rgba(0,0,0,.1);
 }
 
-.title{font-size:22px;font-weight:bold;}
-.headline{margin-top:10px;font-size:16px;}
-.details{margin-top:10px;}
+.title{
+    font-size:24px;
+    font-weight:bold;
+}
 
-input, select{
-    width:100%;
-    padding:10px;
+.headline{
+    font-size:18px;
     margin-top:10px;
-    border-radius:8px;
-    border:1px solid #ccc;
 }
 
-button{
+.details{
+    margin-top:10px;
+}
+
+.btn{
     width:100%;
     padding:12px;
     margin-top:10px;
@@ -53,145 +58,137 @@ button{
     font-size:16px;
 }
 
-.btn{
+.yes{background:#28a745;color:white;}
+.no{background:#dc3545;color:white;}
+
+.pay{
     background:#007bff;
     color:white;
 }
 
-.yes{background:#28a745;color:white;}
-.no{background:#dc3545;color:white;}
-.pay{background:#ff9800;color:white;}
+.telegram{
+    text-align:center;
+    margin-top:30px;
+}
 
 .telegram img{
     width:120px;
 }
 </style>
 </head>
-
 <body>
+
+<div class="chat">
 
 <!-- PAGE 1 -->
 <div class="page active" id="page1">
 <div class="box">
-<div class="title">Welcome</div>
-<div class="headline">Service Start</div>
-<div class="details">আপনি কি শুরু করতে চান?</div>
+<div class="title">TITLE 1</div>
+<div class="headline">HEADLINE 1</div>
+<div class="details">
+এখানে আপনার মেসেজ লিখবেন।
+</div>
 
-<button class="yes" onclick="next(2)">হ্যাঁ</button>
-<button class="no">না</button>
+<button class="btn yes" onclick="nextPage(2)">হ্যাঁ</button>
+<button class="btn no">না</button>
 </div>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" id="page2">
 <div class="box">
-<div class="title">Step 2</div>
-<div class="headline">Continue Service</div>
-<div class="details">পরবর্তী ধাপে যেতে চান?</div>
-
-<button class="btn" onclick="next(3)">Continue</button>
-</div>
+<div class="title">TITLE 2</div>
+<div class="headline">HEADLINE 2</div>
+<div class="details">
+এখানে ২য় মেসেজ লিখবেন।
 </div>
 
-<!-- PAGE 3 (FORM) -->
-<div class="page" id="page3">
-<div class="box">
-
-<div class="title">রেজিস্ট্রেশন ফর্ম</div>
-
-<input type="text" id="name" placeholder="আপনার নাম">
-<input type="text" id="phone" placeholder="আপনার ফোন নম্বর">
-<input type="text" id="district" placeholder="কোন জেলায় কাজ করবেন?">
-<input type="text" id="night" placeholder="রাতে কাজ করবেন? (Yes/No)">
-
-<button class="btn" onclick="next(4)">Next</button>
-
+<button class="btn yes" onclick="nextPage(3)">করতে চাই</button>
 </div>
 </div>
 
 <!-- PAGE 4 -->
+<div class="page" id="page3">
+<div class="box">
+<div class="title">TITLE 4</div>
+<div class="headline">HEADLINE 4</div>
+<div class="details">
+এখানে ৪ নম্বর মেসেজ লিখবেন।
+</div>
+
+<button class="btn pay" onclick="nextPage(4)">
+Pay Korbo
+</button>
+</div>
+</div>
+
+<!-- PAYMENT -->
 <div class="page" id="page4">
 <div class="box">
 
-<div class="title">Payment Step</div>
-<div class="details">Pay করার জন্য নিচে যান</div>
+<h3>Payment Method</h3>
 
-<button class="pay" onclick="next(5)">Pay Korbo</button>
+<label>
+<input type="radio" name="pay">
+bKash - 01842151907
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="pay">
+Nagad / Rocket - 01631348072
+</label>
+
+<br><br>
+
+<input
+type="text"
+placeholder="Transaction ID"
+style="width:100%;padding:10px;"
+>
+
+<button class="btn pay" onclick="nextPage(5)">
+Submit
+</button>
 
 </div>
 </div>
 
-<!-- PAGE 5 PAYMENT -->
+<!-- TELEGRAM -->
 <div class="page" id="page5">
 <div class="box">
 
-<div class="title">Payment Method</div>
-
-<select id="method">
-<option>bKash - 01842151907</option>
-<option>Nagad - 01631348072</option>
-<option>Rocket - 01631348072</option>
-</select>
-
-<input type="text" id="trxid" placeholder="Transaction ID">
-
-<button class="btn" onclick="submitData()">Submit</button>
-
-</div>
-</div>
-
-<!-- PAGE 6 SUCCESS -->
-<div class="page" id="page6">
-<div class="box">
-
-<h2>ধন্যবাদ!</h2>
+<h2>ধন্যবাদ</h2>
 
 <div class="telegram">
-<a href="https://t.me/your_telegram" target="_blank">
+
+<a href="https://t.me/your_username" target="_blank">
 <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg">
 </a>
 
 <br><br>
 
-<a href="https://t.me/your_group" target="_blank">Join Telegram Group</a>
+<a href="https://t.me/your_group_link" target="_blank">
+Telegram Group
+</a>
 
 </div>
 
 </div>
+</div>
+
 </div>
 
 <script>
+function nextPage(page){
+document.querySelectorAll('.page')
+.forEach(p=>p.classList.remove('active'));
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyEJh3uipCKIvUzbQTiX_hytGhDfTinsyUjMnlKW9YLOFwYyMi0vjm2WycIuOr5T-aSFg/exec";
-
-function next(page){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById('page'+page).classList.add('active');
+document
+.getElementById('page'+page)
+.classList.add('active');
 }
-
-function submitData(){
-
-let data = {
-name: document.getElementById("name").value,
-phone: document.getElementById("phone").value,
-trxid: document.getElementById("trxid").value,
-method: document.getElementById("method").value
-};
-
-fetch(SCRIPT_URL,{
-method:"POST",
-body: JSON.stringify(data)
-})
-.then(res=>res.json())
-.then(res=>{
-next(6);
-})
-.catch(err=>{
-alert("Error!");
-});
-
-}
-
 </script>
 
 </body>
